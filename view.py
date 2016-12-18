@@ -29,7 +29,7 @@ class View:
         print('view:set_output: ' +str(value))
         self.output.set(str(value))
 
-    def init_number_buttons(self): 
+    def init_number_buttons(self):
         row = 0
         column = 0
 
@@ -45,18 +45,18 @@ class View:
             button.grid(row=row, column=column)
 
     def init_clear_button(self):
-        button = tk.Button(self.window, text="Clear", command=self.clear_event)
-        button.grid(row=0, column=4)
+        button = tk.Button(self.window, text="C", command=self.clear_event)
+        button.grid(row=4, column=1)
 
     def init_equal_button(self):
         button = tk.Button(self.window, text="=", command=self.equal_event)
-        button.grid(row=4, column=1, columnspan=2)
+        button.grid(row=4, column=2)
 
     def init_output_label(self):
         self.output = tk.StringVar()
         self.output_label = tk.Label(self.window, textvariable=self.output, relief=tk.RAISED)
         self.output.set(str(0))
-        self.output_label.place(x=0, y=0)
+        self.output_label.grid(row=0, column=0, columnspan=10)
 
     def init_operation_buttons(self):
         add_button = tk.Button(self.window, text="+", command=partial(self.operation_event, 1))
